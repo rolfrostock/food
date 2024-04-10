@@ -1,10 +1,11 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_foodybite/screens/add.dart';
-import 'package:flutter_foodybite/screens/home.dart';
-import 'package:flutter_foodybite/screens/label.dart';
-import 'package:flutter_foodybite/screens/profile.dart';
+// lib/screens/main_screen.dart
 
-import 'notifications.dart';
+import 'package:flutter/material.dart';
+import '../screens/add.dart';
+import '../screens/home.dart';
+import '../screens/label.dart';
+import '../screens/profile.dart';
+import '../screens/notifications.dart';
 
 class MainScreen extends StatefulWidget {
   @override
@@ -12,7 +13,7 @@ class MainScreen extends StatefulWidget {
 }
 
 class _MainScreenState extends State<MainScreen> {
-  PageController _pageController;
+  late PageController _pageController;
   int _page = 0;
 
   List icons = [
@@ -23,12 +24,12 @@ class _MainScreenState extends State<MainScreen> {
     Icons.person,
   ];
 
-  List pages = [
+  List<Widget> pages = [
     Home(),
-    Label(),
-    Add(),
-    Notifications(),
-    Profile(),
+    Label(key: UniqueKey()),
+    Add(key: UniqueKey()),
+    AddCategoryForm(key: UniqueKey()), // Modifique esta linha para adicionar Notifications
+    Profile(key: UniqueKey()),
   ];
 
   @override
@@ -91,18 +92,20 @@ class _MainScreenState extends State<MainScreen> {
   }
 
   buildTabIcon(int index) {
-      return Container(
-        margin: EdgeInsets.fromLTRB( index == 3 ? 30 : 0, 0,  index == 1 ? 30 : 0, 0),
-        child: IconButton(
-          icon: Icon(
-            icons[index],
-            size: 24.0,
-          ),
-          color: _page == index
-              ? Theme.of(context).accentColor
-              : Theme.of(context).textTheme.caption.color,
-          onPressed: () => _pageController.jumpToPage(index),
+    return Container(
+      margin: EdgeInsets.fromLTRB(index == 3 ? 30 : 0, 0, index == 1 ? 30 : 0, 0),
+      child: IconButton(
+        icon: Icon(
+          icons[index],
+          size: 24.0,
         ),
-      );
+        // Correção aplicada aqui para 'accentColor' e uso seguro de 'color'
+        color: _page == index
+            ? Theme.of(context).colorScheme.secondary
+            : Theme.of(context).textTheme.bodySmall?.color ?? Colors.black, // Fallback para Colors.black se for nulo
+        onPressed: () => _pageController.jumpToPage(index),
+      ),
+    );
   }
+
 }

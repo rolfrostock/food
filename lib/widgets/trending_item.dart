@@ -1,5 +1,7 @@
+// lib/widgets/trending_item.dart
+
 import 'package:flutter/material.dart';
-import 'package:flutter_foodybite/util/const.dart';
+import '../util/const.dart';
 
 class TrendingItem extends StatefulWidget {
   final String img;
@@ -8,11 +10,11 @@ class TrendingItem extends StatefulWidget {
   final String rating;
 
   TrendingItem({
-    Key key,
-    @required this.img,
-    @required this.title,
-    @required this.address,
-    @required this.rating,
+    Key? key, // Torna a chave opcional
+    required this.img,
+    required this.title,
+    required this.address,
+    required this.rating,
   }) : super(key: key);
 
   @override

@@ -1,3 +1,5 @@
+// lib/widgets/search_card.dart
+
 import 'package:flutter/material.dart';
 
 class SearchCard extends StatelessWidget {

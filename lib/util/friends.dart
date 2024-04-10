@@ -1,3 +1,5 @@
+// lib/util/friends.dart
+
 List friends = [
   "assets/cm1.jpeg",
   "assets/cm2.jpeg",

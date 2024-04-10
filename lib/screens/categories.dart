@@ -1,6 +1,9 @@
+// lib/screens/categories.dart
+
 import 'package:flutter/material.dart';
-import 'package:flutter_foodybite/util/categories.dart';
-import 'package:flutter_foodybite/widgets/category_item.dart';
+import '../screens/categories.dart';
+import '../util/categories.dart';
+import '../widgets/category_item.dart';
 
 class Categories extends StatefulWidget {
   @override

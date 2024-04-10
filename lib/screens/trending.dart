@@ -1,7 +1,9 @@
+// lib/screens/trending.dart
+
 import 'package:flutter/material.dart';
-import 'package:flutter_foodybite/util/restaurants.dart';
-import 'package:flutter_foodybite/widgets/search_card.dart';
-import 'package:flutter_foodybite/widgets/trending_item.dart';
+import '../util/restaurants.dart';
+import '../widgets/search_card.dart';
+import '../widgets/trending_item.dart';
 
 class Trending extends StatelessWidget {
   @override

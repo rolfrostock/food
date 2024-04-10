@@ -1,6 +1,5 @@
-name: flutter_foodybite
-description: A new Flutter application.
-
+name: foodybite
+description: "projeto PI tecTarde"
 # The following defines the version and build number for your application.
 # A version number is three numbers separated by dots, like 1.2.43
 # followed by an optional build number separated by a +.
@@ -14,15 +13,21 @@ description: A new Flutter application.
 version: 1.0.0+1
 
 environment:
-  sdk: ">=2.1.0 <3.0.0"
+  sdk: '>=2.12.0 <3.0.0'
 
 dependencies:
   flutter:
     sdk: flutter
+  image_picker: ^1.0.7
+  path_provider: ^2.0.14
+  firebase_core: ^2.29.0
+  cloud_firestore: ^4.16.1
+  flutter_colorpicker: ^1.0.3
+
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
-  cupertino_icons: ^0.1.2
+  cupertino_icons: ^1.0.6
 
 dev_dependencies:
   flutter_test:

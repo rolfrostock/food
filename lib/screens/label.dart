@@ -1,7 +1,9 @@
+// lib/screens/label.dart
+
 import 'package:flutter/material.dart';
 
 class Label extends StatelessWidget {
-  const Label({Key key}) : super(key: key);
+  const Label({required Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

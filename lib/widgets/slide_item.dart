@@ -1,5 +1,7 @@
+// lib/widgets/slide_item.dart
+
 import 'package:flutter/material.dart';
-import 'package:flutter_foodybite/util/const.dart';
+import '../util/const.dart';
 
 class SlideItem extends StatefulWidget {
   final String img;
@@ -8,16 +10,17 @@ class SlideItem extends StatefulWidget {
   final String rating;
 
   SlideItem({
-    Key key,
-    @required this.img,
-    @required this.title,
-    @required this.address,
-    @required this.rating,
+    Key? key, // Torna a chave opcional
+    required this.img,
+    required this.title,
+    required this.address,
+    required this.rating,
   }) : super(key: key);
 
   @override
   _SlideItemState createState() => _SlideItemState();
 }
+
 
 class _SlideItemState extends State<SlideItem> {
   @override

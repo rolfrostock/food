@@ -1,3 +1,5 @@
+// lib/util/categories.dart
+
 import 'package:flutter/material.dart';
 
 List categories = [

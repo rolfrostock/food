@@ -1,3 +1,5 @@
+// lib/util/restaurants.dart
+
 List restaurants = [
   {
     "img": "assets/food1.jpeg",

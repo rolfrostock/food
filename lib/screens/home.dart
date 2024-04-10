@@ -1,22 +1,25 @@
-import 'dart:io';
+// lib/screens/home.dart
 
+import 'dart:io';
 import 'package:flutter/material.dart';
-import 'package:flutter_foodybite/screens/categories.dart';
-import 'package:flutter_foodybite/screens/trending.dart';
-import 'package:flutter_foodybite/util/categories.dart';
-import 'package:flutter_foodybite/util/friends.dart';
-import 'package:flutter_foodybite/util/restaurants.dart';
-import 'package:flutter_foodybite/widgets/category_item.dart';
-import 'package:flutter_foodybite/widgets/search_card.dart';
-import 'package:flutter_foodybite/widgets/slide_item.dart';
+import '../screens/categories.dart';
+import '../screens/trending.dart';
+import '../util/categories.dart';
+import '../util/friends.dart';
+import '../util/restaurants.dart';
+import '../widgets/category_item.dart';
+import '../widgets/search_card.dart';
+import '../widgets/slide_item.dart';
+import '../services/foodservices.dart';
 
 class Home extends StatelessWidget {
+  final FoodService homeService = FoodService();
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: (){
+      onTap: () {
         FocusScopeNode currentFocus = FocusScope.of(context);
-        if(!currentFocus.hasPrimaryFocus){
+        if (!currentFocus.hasPrimaryFocus) {
           currentFocus.unfocus();
         }
       },
@@ -25,19 +28,23 @@ class Home extends StatelessWidget {
           padding: const EdgeInsets.fromLTRB(10.0, 0, 10.0, 0),
           child: ListView(
             children: <Widget>[
-              buildSearchBar(context),
+              homeService.buildSearchBar(context),
               SizedBox(height: 20.0),
-              buildRestaurantRow('Trending Restaurants', context),
+              homeService.buildRestaurantRow('Trending Restaurants', context, () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) => Trending()));
+              }),
               SizedBox(height: 10.0),
-              buildRestaurantList(context),
+              homeService.buildRestaurantList(context),
               SizedBox(height: 10.0),
-              buildCategoryRow('Category', context),
+              homeService.buildCategoryRow('Category', context, () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) => Categories()));
+              }),
               SizedBox(height: 10.0),
-              buildCategoryList(context),
+              homeService.buildCategoryList(context),
               SizedBox(height: 20.0),
-              buildCategoryRow('Friends', context),
+              homeService.buildCategoryRow('Friends', context, () {}),
               SizedBox(height: 10.0),
-              buildFriendsList(),
+              homeService.buildFriendsList(context),
               SizedBox(height: 30.0),
             ],
           ),
@@ -57,11 +64,11 @@ class Home extends StatelessWidget {
             fontWeight: FontWeight.w800,
           ),
         ),
-        FlatButton(
+        TextButton(
           child: Text(
             "See all (9)",
             style: TextStyle(
-              color: Theme.of(context).accentColor,
+              color: Theme.of(context).colorScheme.secondary,
             ),
           ),
           onPressed: () {
@@ -90,11 +97,11 @@ class Home extends StatelessWidget {
             fontWeight: FontWeight.w800,
           ),
         ),
-        FlatButton(
+        TextButton(
           child: Text(
             "See all (9)",
             style: TextStyle(
-              color: Theme.of(context).accentColor,
+              color: Theme.of(context).colorScheme.secondary,
             ),
           ),
           onPressed: () {

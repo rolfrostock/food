@@ -1,9 +1,11 @@
+// lib/widgets/category_item.dart
+
 import 'package:flutter/material.dart';
 
 class CategoryItem extends StatelessWidget {
   final Map cat;
 
-  CategoryItem({this.cat});
+  CategoryItem({required this.cat});
 
   @override
   Widget build(BuildContext context) {
